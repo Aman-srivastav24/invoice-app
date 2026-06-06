@@ -67,6 +67,35 @@ Relationships:
 - Client has many Invoices
 - Invoice has many Invoice Items
 
+
+### Auth
+| Method | Endpoint | Description | Protected |
+|---|---|---|---|
+| POST | `/api/auth/register` | Register new freelancer | No |
+| POST | `/api/auth/login` | Login, returns JWT token | No |
+| POST | `/api/auth/logout` | Logout | Yes |
+
+### Clients
+| Method | Endpoint | Description | Protected |
+|---|---|---|---|
+| POST | `/api/clients` | Create new client | Yes |
+| GET | `/api/clients` | Get all clients | Yes |
+| GET | `/api/clients/:id` | Get single client | Yes |
+| PUT | `/api/clients/:id` | Update client | Yes |
+| DELETE | `/api/clients/:id` | Delete client | Yes |
+
+### Invoices
+| Method | Endpoint | Description | Protected |
+|---|---|---|---|
+| POST | `/api/invoices` | Create new invoice | Yes |
+| GET | `/api/invoices` | Get all invoices | Yes |
+| GET | `/api/invoices/:id` | Get single invoice with items | Yes |
+| PUT | `/api/invoices/:id` | Update invoice | Yes |
+| DELETE | `/api/invoices/:id` | Delete invoice | Yes |
+| PATCH | `/api/invoices/:id/status` | Update invoice status | Yes |
+| GET | `/api/invoices/:id/pdf` | Generate and download PDF | Yes |
+
+
 ## Local Setup
 
 ### Prerequisites
@@ -111,6 +140,5 @@ psql -U postgres -d invoice_db -f migrations/init.sql
 npm run dev
 ```
 
-## Environment Variables
+## API DESIGN
 
-See `.env.example` for all required variables.
